@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\catal\\OneDrive\\Desktop\\SCD_P\\courier_app\\CourierAppClient\\CourierAppClient.csproj": {}
+    "C:\\Users\\catal\\OneDrive\\Desktop\\courier_app\\courier_app\\CourierAppClient\\CourierAppClient.csproj": {}
   },
   "projects": {
-    "C:\\Users\\catal\\OneDrive\\Desktop\\SCD_P\\courier_app\\CourierAppClient\\CourierAppClient.csproj": {
+    "C:\\Users\\catal\\OneDrive\\Desktop\\courier_app\\courier_app\\CourierAppClient\\CourierAppClient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\catal\\OneDrive\\Desktop\\SCD_P\\courier_app\\CourierAppClient\\CourierAppClient.csproj",
+        "projectUniqueName": "C:\\Users\\catal\\OneDrive\\Desktop\\courier_app\\courier_app\\CourierAppClient\\CourierAppClient.csproj",
         "projectName": "CourierAppClient",
-        "projectPath": "C:\\Users\\catal\\OneDrive\\Desktop\\SCD_P\\courier_app\\CourierAppClient\\CourierAppClient.csproj",
+        "projectPath": "C:\\Users\\catal\\OneDrive\\Desktop\\courier_app\\courier_app\\CourierAppClient\\CourierAppClient.csproj",
         "packagesPath": "C:\\Users\\catal\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\catal\\OneDrive\\Desktop\\SCD_P\\courier_app\\CourierAppClient\\obj\\",
+        "outputPath": "C:\\Users\\catal\\OneDrive\\Desktop\\courier_app\\courier_app\\CourierAppClient\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

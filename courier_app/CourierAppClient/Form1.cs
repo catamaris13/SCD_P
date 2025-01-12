@@ -179,7 +179,7 @@ namespace CourierAppClient
 
                 // Crearea mesajului
                 string fromEmail = "catamaris13@gmail.com";
-                string subject = "SlothShip Message";
+                string subject = "RocketShip Message";
                 string body = textBox1.Text;
 
                 MailMessage mailMessage = new MailMessage(fromEmail, recipientEmail)
