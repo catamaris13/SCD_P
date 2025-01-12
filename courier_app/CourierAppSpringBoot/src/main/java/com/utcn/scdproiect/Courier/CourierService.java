@@ -88,10 +88,16 @@ public class CourierService {
 
 
     public Courier updateCourier(Integer id, Courier updatedCourier) {
+        // Găsește curierul existent după ID
         Courier existingCourier = courierRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Courier not found with id: " + id));
 
-        // Update fields only if they are not null
+        // Verifică dacă acest curier este deja manager și nu poate avea alt manager
+        if (courierRepository.countManagedCouriers(id) > 0 && updatedCourier.getManagerId() != null) {
+            throw new IllegalArgumentException("A courier who is already a manager cannot have another manager.");
+        }
+
+        // Actualizează câmpurile doar dacă nu sunt null
         if (updatedCourier.getName() != null) {
             existingCourier.setName(updatedCourier.getName());
         }
@@ -100,7 +106,17 @@ public class CourierService {
         }
         if (updatedCourier.getManagerId() != null) {
             existingCourier.setManagerId(updatedCourier.getManagerId());
+
+            // Setează isManager = true pe curierul care devine manager
+            Courier managerCourier = courierRepository.findById(updatedCourier.getManagerId())
+                    .orElseThrow(() -> new EntityNotFoundException("Manager not found with id: " + updatedCourier.getManagerId()));
+            managerCourier.setManager(true); // Folosim metoda corectă generată de Lombok
+            courierRepository.save(managerCourier); // Salvează modificarea pentru manager
+        } else {
+            // Dacă managerId este null, curierul devine manager
+            existingCourier.setManager(true);
         }
+
         return courierRepository.save(existingCourier);
     }
 

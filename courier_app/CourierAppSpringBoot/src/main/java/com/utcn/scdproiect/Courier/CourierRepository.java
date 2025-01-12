@@ -13,8 +13,10 @@ public interface CourierRepository extends JpaRepository<Courier, Integer> {
     @Query("SELECT c FROM Courier c LEFT JOIN Package p ON p.courier = c WHERE p.status != com.utcn.scdproiect.Pkg.PackageStatus.PENDING OR p IS NULL")
     List<Courier> findAllWithoutPendingPackages();
 
-    @Query("SELECT c.managerId AS manager, COUNT(p) AS deliveredCount FROM Package p JOIN p.courier c WHERE p.status = com.utcn.scdproiect.Pkg.PackageStatus.DELIVERED  GROUP BY c.managerId")
+    @Query("SELECT c.name AS manager, COUNT(p) AS deliveredCount FROM Package p JOIN p.courier c WHERE p.status = com.utcn.scdproiect.Pkg.PackageStatus.DELIVERED  GROUP BY c.name")
     List<Object[]> findAllManagersAndDeliveredCount();
+    @Query("SELECT COUNT(c) FROM Courier c WHERE c.managerId = :courierId")
+    int countManagedCouriers(@Param("courierId") Integer courierId);
 
     @Query("SELECT c " +
             "FROM Courier c " +
